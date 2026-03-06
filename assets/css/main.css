@@ -3225,11 +3225,13 @@ nav {
     position: fixed;
     top: 2em;
     right: 2em;
-    z-index: 1000;
+    z-index: 10000; 
     background: rgba(255, 255, 255, 0.95);
     padding: 0.5em 1.5em;
     border-radius: 2em;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 nav ul {
@@ -3251,6 +3253,7 @@ nav ul li a {
     font-size: 0.9em;
     letter-spacing: 0.05em;
     transition: color 0.2s ease;
+    text-decoration: none;
 }
 
 nav ul li a:hover {
@@ -3261,13 +3264,16 @@ nav ul li a:hover {
 .wrapper {
     display: flex;
     min-height: 100vh;
+    position: relative;
 }
 
 /* Adjust header for desktop */
 #header {
     width: 35%;
-    position: relative;
-    height: auto;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
     padding: 4em 2em;
     background-color: #1f1815;
     background-image: url("images/overlay.png"), url("images/bg.jpg");
@@ -3277,20 +3283,30 @@ nav ul li a:hover {
     color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     text-align: right;
+    overflow-y: auto; /* Allows scrolling if content is too long */
+}
+
+/* Main content area adjustments */
+#header .inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Main content area adjustments */
 #main {
     width: 65%;
-    margin-left: 0;
+    margin-left: 35%; /* Offset by header width */
     padding: 4em 3em;
     max-width: none;
+    min-height: 100vh;
 }
 
 #main section {
-    margin: 0 0 3em 0;
+    margin: 0 0 4em 0;
     padding: 0;
     border-top: none;
 }
@@ -3309,49 +3325,69 @@ nav ul li a:hover {
 }
 
 /* Footer adjustments */
-#footer {
-    clear: both;
+footer {
+    width: 65%;
+    margin-left: 35%; /* Same as main content */
     background: #f7f7f7;
-    padding: 2em 0;
+    padding: 2em 3em;
     text-align: center;
     border-top: 2px solid #efefef;
+    clear: both;
 }
 
-#footer .inner {
-    max-width: 1200px;
+footer .inner {
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 2em;
 }
 
-/* Mobile styles (adjust the existing media query) */
+/* Make sure footer doesn't overlap with header on desktop */
+@media screen and (min-width: 981px) {
+    footer {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* Mobile styles */
 @media screen and (max-width: 980px) {
     .wrapper {
         flex-direction: column;
-    }
-    
-    #header, #main {
-        width: 100%;
+        min-height: auto;
     }
     
     #header {
+        width: 100%;
         position: relative;
-        text-align: center;
+        height: auto;
+        min-height: auto;
+        left: auto;
+        top: auto;
         padding: 3em 1.5em;
+        text-align: center;
     }
     
     #header .inner {
-        margin: 0 auto;
-        max-width: 400px;
+        justify-content: flex-start;
     }
     
     #main {
+        width: 100%;
+        margin-left: 0;
         padding: 3em 1.5em;
+        min-height: auto;
+    }
+    
+    footer {
+        width: 100%;
+        margin-left: 0;
+        padding: 2em 1.5em;
     }
     
     nav {
         top: 1em;
         right: 1em;
         padding: 0.3em 1em;
+        z-index: 10000;
     }
     
     nav ul {
@@ -3366,8 +3402,10 @@ nav ul li a:hover {
 /* Small mobile adjustments */
 @media screen and (max-width: 480px) {
     nav {
-        position: static;
-        margin: 1em;
+        top: 0.5em;
+        right: 0.5em;
+        left: 0.5em;
+        width: auto;
         text-align: center;
         border-radius: 2em;
     }
@@ -3376,4 +3414,13 @@ nav ul li a:hover {
         justify-content: center;
         flex-wrap: wrap;
     }
+    
+    #header {
+        padding: 4em 1em 2em 1em;
+    }
+}
+
+#header {
+    background-image: url("assets/img/overlay.png"), url("assets/img/bg.jpg");
+    background-size: auto, cover;
 }
