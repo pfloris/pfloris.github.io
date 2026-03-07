@@ -596,16 +596,6 @@ input, select, textarea {
 		color: rgba(255, 255, 255, 0.4);
 	}
 
-	#footer a {
-		color: rgba(255, 255, 255, 0.8);
-	}
-	
-	#footer p {
-		margin: 0;
-		color: rgba(255, 255, 255, 0.4);
-		font-size: 0.8em;
-	}
-
 	#footer .copyright {
 		color: rgba(255, 255, 255, 0.4);
 		font-size: 0.8em;
