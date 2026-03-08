@@ -12,19 +12,19 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #1a1e24; /* Dark background, not black */
+    background-color: #1a1e24;
     color: #e0e0e0;
     line-height: 1.6;
-    padding-top: 60px; /* Space for fixed navigation */
+    padding-top: 60px;
 }
 
-/* Fixed navigation toolbar */
+/* Navigation toolbar */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000000; /* Black navigation bar */
+    background-color: #000000;
     padding: 1rem 2rem;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -50,7 +50,7 @@ nav ul li a:hover {
     color: #4a9eff;
 }
 
-/* Main wrapper for sidebar and content */
+/* Main wrapper */
 .wrapper {
     display: flex;
     max-width: 1400px;
@@ -111,12 +111,12 @@ nav ul li a:hover {
     color: #4a9eff;
 }
 
-/* Main content area */
+/* Main content */
 #main {
     flex: 0 0 75%;
 }
 
-/* Section styling */
+/* Section */
 section {
     background-color: #252b33;
     border-radius: 8px;
@@ -143,12 +143,18 @@ section p {
 /* Publications list */
 #publications ul {
     list-style: none;
+    padding: 0;
 }
 
 #publications ul li {
-    padding: 0.8rem 0;
+    padding: 1.2rem 0;
     border-bottom: 1px solid #3a424c;
     color: #d0d0d0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
 
 #publications ul li:last-child {
@@ -159,6 +165,61 @@ section p {
     color: #ffffff;
     padding-left: 0.5rem;
     transition: all 0.3s ease;
+}
+
+#publications .authors {
+    font-weight: 600;
+    color: #ffffff;
+    margin-right: 0.25rem;
+}
+
+#publications .year {
+    color: #ffffff;
+    margin-right: 0.25rem;
+}
+
+#publications .title {
+    font-style: italic;
+    color: #b0b0b0
+    margin-right: 0.25rem;
+}
+
+#publications .journal {
+    font-weight: 500;
+    color: #b0b0b0;
+}
+
+#publications .journal i, #publications .journal em {
+    font-style: italic;
+    color: #d0d0d0;
+}
+
+#publications .volume {
+    font-weight: 600;
+    color: #b0b0b0;
+    margin-right: 0.125rem;
+}
+
+#publications .pages {
+    color: #b0b0b0;
+}
+
+#publications .doi {
+    color: #4a9eff;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+#publications .doi a {
+    color: #4a9eff;
+    text-decoration: none;
+    border-bottom: 1px dotted #4a9eff;
+}
+
+#publications .doi a:hover {
+    color: #7fb8ff;
+    border-bottom: 1px solid #7fb8ff;
 }
 
 /* Footer */
