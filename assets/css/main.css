@@ -152,9 +152,6 @@ section p {
     color: #d0d0d0;
     line-height: 1.6;
     font-size: 0.95rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
 }
 
 #publications ul li:last-child {
@@ -165,6 +162,10 @@ section p {
     color: #ffffff;
     padding-left: 0.5rem;
     transition: all 0.3s ease;
+}
+
+#publications ul li > span {
+    display: inline;
 }
 
 #publications .authors {
@@ -179,7 +180,6 @@ section p {
 }
 
 #publications .title {
-    font-style: italic;
     color: #b0b0b0
     margin-right: 0.25rem;
 }
@@ -195,7 +195,12 @@ section p {
 }
 
 #publications .volume {
-    font-weight: 600;
+    font-style: italic;
+    color: #b0b0b0;
+    margin-right: 0.125rem;
+}
+
+#publications .issue {
     color: #b0b0b0;
     margin-right: 0.125rem;
 }
@@ -207,8 +212,8 @@ section p {
 #publications .doi {
     color: #4a9eff;
     font-size: 0.85rem;
+    display: block;
     margin-top: 0.25rem;
-    width: 100%;
 }
 
 #publications .doi a {
